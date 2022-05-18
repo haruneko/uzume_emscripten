@@ -1,0 +1,3 @@
+[submodule "lib/uzume_vocoder"]
+	path = lib/uzume_vocoder
+	url = https://github.com/haruneko/uzume_vocoder.git
