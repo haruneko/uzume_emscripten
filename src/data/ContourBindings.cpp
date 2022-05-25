@@ -8,7 +8,8 @@ using namespace emscripten;
 
 EMSCRIPTEN_BINDINGS(ContourBindings) {
     class_<uzume::vocoder::Contour>("Contour")
-        .constructor<double, double>()
+        .smart_ptr<std::shared_ptr<uzume::vocoder::Contour>>("shared_ptr<uzume::vocoder::Contour>")
+        .constructor(&std::make_shared<uzume::vocoder::Contour, double, double>)
         .function("at", &uzume::vocoder::Contour::at)
         .function("msLength", &uzume::vocoder::Contour::msLength)
         .property("length", &uzume::vocoder::Contour::length);
